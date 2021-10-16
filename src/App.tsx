@@ -1,7 +1,8 @@
 import React from "react";
 import Input from "./input/Input";
 import Toggle from "./toggle-button/ToggleButton";
-import NUmberInput from "./number-input/NumberInput";
+import NumberInput from "./number-input/NumberInput";
+import Checkbox from "./checkbox/Checkbox";
 import "./styles.scss";
 
 export default function App() {
@@ -10,7 +11,8 @@ export default function App() {
     <div className="container">
       <Input value={value} setValue={setValue} isRequired />
       <Toggle />
-      <NUmberInput />
+      <NumberInput />
+      <Checkbox />
     </div>
   );
 }

@@ -1,8 +1,8 @@
 import React from "react";
 import ErrorControl from "../error-control/ErrorControl";
-import styles from "./toggleButton.module.scss";
+import styles from "./checkbox.module.scss";
 
-type ToggleProps = {
+type CheckboxProps = {
   value?: boolean | string | number;
   setValue?: (newVal: boolean) => void;
   isRequired?: boolean;
@@ -11,14 +11,14 @@ type ToggleProps = {
   error?: string;
 };
 
-const Toggle = ({
+const Checkbox = ({
   value,
   setValue,
   error,
-  isRequired,
+  isRequired = true,
   isDisabled = false,
-  isReadOnly = false
-}: ToggleProps) => {
+  isReadOnly = true
+}: CheckboxProps) => {
   const [checked, setChecked] = React.useState(false);
   const isChecked = checked || !!value;
 
@@ -31,7 +31,7 @@ const Toggle = ({
   };
 
   const getClass = () => {
-    let cls = `${styles.toggle}`;
+    let cls = `${styles.checkbox}`;
     const whiteSpace = " ";
     if (isDisabled) cls += `${whiteSpace}${styles.disabled}`;
     if (isReadOnly && !isDisabled) cls += `${whiteSpace}${styles.readonly}`;
@@ -44,15 +44,12 @@ const Toggle = ({
         type="checkbox"
         checked={isChecked}
         onChange={handleChange}
-        id="toggle"
+        id="checkbox"
       />
-      <label htmlFor="toggle" />
-      <div className={styles.pseudo_label}>
-        Label {isRequired && <span>*</span>}
-      </div>
+      <label htmlFor="checkbox">Label {isRequired && <span>*</span>}</label>
       <ErrorControl error={error} />
     </div>
   );
 };
 
-export default Toggle;
+export default Checkbox;
