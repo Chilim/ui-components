@@ -1,5 +1,5 @@
 import React from "react";
-import "./input.scss";
+import styles from "./input.module.scss";
 
 type InputProps = {
   value?: string;
@@ -20,14 +20,14 @@ const Input = ({ value, setValue, isRequired, error }: InputProps) => {
   };
 
   return (
-    <div className="field">
+    <div className={styles.field}>
       <input
         type="text"
         id="input"
         value={inputValue}
         onChange={handleChange}
       />
-      <label htmlFor="input" className={!!value ? "hasValue" : ""}>
+      <label htmlFor="input" className={!!value ? styles.hasValue : ""}>
         Label {isRequired && <span>*</span>}
       </label>
       <p className="error">{error}</p>

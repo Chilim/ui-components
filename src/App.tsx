@@ -1,5 +1,6 @@
 import React from "react";
 import Input from "./input/Input";
+import Toggle from "./toggle-button/ToggleButton";
 import "./styles.scss";
 
 export default function App() {
@@ -7,6 +8,8 @@ export default function App() {
   return (
     <div className="container">
       <Input value={value} setValue={setValue} isRequired />
+
+      <Toggle />
     </div>
   );
 }
